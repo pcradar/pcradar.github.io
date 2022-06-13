@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Go</title>
+    <style>
+        
+        *{
+            font-weight:500 ;
+        }
+        @media screen and (max-width: 400px) {
+            *{
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+</head>
+<body>
+        <script type="text/javascript">
+            var url = location.hash.slice(2);
+            if(url.substring(0,4) == "http") {
+                window.onload = function(e) {
+                    var main = document.getElementById('main').style.display = 'none';
+                    var redirect = document.getElementById('link');
+                    redirect.innerHTML = "<p id='p'>Link In 5 Seconds.</p> <br> <a id='button' href=''><button id='loading'></button></a>";
+                    setTimeout(function() {
+                        var loadingButton = document.getElementById('loading').innerHTML = 'Click To Visit';
+                        var button = document.getElementById('button').href = url;
+                        var p = document.getElementById('p').innerHTML = 'Link Proccesing Completed.';
+                    }, 5000);
+                }
+            
+            } else {
+                if(url != "") {
+                    window.onload = function(e) {
+                    var main = document.getElementById('main').style.display = 'none';
+                    var redirect = document.getElementById('link');
+                    redirect.innerHTML = "<p id='p'>Link In 5 Seconds.</p> <br> <a id='button' href=''><button id='loading'></button></a>";
+                    setTimeout(function() {
+                        var loadingButton = document.getElementById('loading').innerHTML = 'Click To Visit';
+                        var button = document.getElementById('button').href ="http://" + url;
+                        var p = document.getElementById('p').innerHTML = 'Link Proccesing Completed.';
+                    }, 5000);
+                }
+                }
+            }
+        </script>
+       
+    
+        <h1>✔️ This Link is Safe.</h1>
+
+        <div id="link" style="text-align: center;" class="link">
+
+        </div>
+
+        <div id="main" class="main">
+        <div >
+            To redirect to your url, change the <kbd>URL</kbd> with your url
+            <br>
+            <br>
+            https://click.infoetc.in/#/<kbd>URL</kbd>
+        </div>
+<br>
+        <div class="generator">
+            <h2>Generator</h2>
+            <p>Why not just generate the links? Heres the generator.</p>
+            <p>Note: Please, enter the URL with https:// or http://</p>
+            <p>Your URL:</p>
+            <input id="url" placeholder="URL" value="" name="url" type="text">
+            <button onclick="generate()">Generate</button>
+            <div id="alert"></div>
+
+            <div class="result">
+            <h4 id="test">Result</h4>
+            <input type="text" name="result" id="result">
+            <button onclick="copy()">Copy Link</button>
+            <div id="copied-alert"></div>
+                </div>
+                <br>
+            <footer>
+                Made With ❤️ by <a href="https://fiverr.com/linuxrajdeep" target="_blank">Rajdeep Das</a> 
+            </footer>
+            <script>
+                function generate(){
+                    var url = document.getElementById('url');
+                    var u2 = url.value;
+                    var u1 = "https://click.infoetc.in/#/";
+                    var result = document.getElementById('result');
+                    result.value = u1 + u2;
+                    
+                }
+                function copy(){
+                        /* Get the text field */
+                        var copyText = document.getElementById("result");
+
+                        /* Select the text field */
+                        copyText.select();
+                        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+                        /* Copy the text inside the text field */
+                        document.execCommand("copy");
+
+                        /* Alert the copied text */
+                        document.getElementById('copied-alert').innerHTML = "Link Copied";
+                }
+
+                
+            </script>
+        </div>
+    </div>
+</body>
+</html>
